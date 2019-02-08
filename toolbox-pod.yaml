@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-toolbox
+spec:
+  containers:
+    - image: quay.io/ksexton/kubernetes-toolbox:latest
+      name: kubernetes-toolbox
+

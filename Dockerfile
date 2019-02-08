@@ -11,7 +11,9 @@ RUN apt-get update \
 RUN apt-get install -y libcap2-bin \
         && apt-get install -y nfs-common \
         && apt-get install -y dnsutils \
-        && apt-get install -y nfs-common
+        && apt-get install -y telnet \
+        && apt-get install -y net-tools \
+        && apt-get install -y netcat-traditional
 
 CMD while true; do sleep 1; done;
 
