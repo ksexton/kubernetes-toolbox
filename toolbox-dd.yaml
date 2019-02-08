@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: toolbox-dd
+  labels:
+    app: toolbox-dd
+spec:
+  selector:
+    matchLabels:
+      name: toolbox-dd
+  template:
+    metadata:
+      labels:
+        name: toolbox-dd
+    spec:
+      containers:
+        - image: quay.io/ksexton/kubernetes-toolbox:latest
+          name: kubernetes-toolbox
+          args: [/bin/sh, -c, 'while true; do /usr/bin/time -f"dd elapsed time: %E" dd if=/dev/zero of=./test.img bs=1M count=1000 conv=fsync status=none; sleep 5; done']
